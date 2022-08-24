@@ -13,7 +13,7 @@ export default function Articolo(){
   let [src, setSrc] = useState('');
 
   useEffect(() => {
-    axios.get(`/api/articles/${params.id}`)
+    axios.get(`https://sindaco-del-calciomercato.herokuapp.com/api/articles/${params.id}`)
     .then((res)=>{
       setE(res.data)
       if(e.image){

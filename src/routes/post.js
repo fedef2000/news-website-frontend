@@ -16,7 +16,7 @@ export default function Post(){
   )
   const [success, setSuccess] = useState(false);
   const [errMsg, setErrMsg] = useState('');
-  const POST_URL = '/api/articles';
+  const POST_URL = 'https://sindaco-del-calciomercato.herokuapp.com/api/articles';
   const navigate = useNavigate()
   function handleChange(event) {
     const {name, value} = event.target

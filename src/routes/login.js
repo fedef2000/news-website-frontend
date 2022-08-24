@@ -4,7 +4,7 @@ import Cookies from 'js-cookie'
 import axios from '../api/axios';
 import { Link, useNavigate } from 'react-router-dom';
 
-const LOGIN_URL = '/api/auth';
+const LOGIN_URL = 'https://sindaco-del-calciomercato.herokuapp.com/api/auth';
 const Login = () => {
     //const { setAuth } = useContext(AuthContext);
     const userRef = useRef();
