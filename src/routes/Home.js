@@ -14,7 +14,7 @@ export default function Body(){
     //const [loaded, setLoaded] = useState(false)
     const navigate = useNavigate()
     useEffect(() => {
-        axios.get("https://sindaco-del-calciomercato.herokuapp.com/api/articles").then((res)=>{
+        axios.get("http://localhost:4000/api/articles").then((res)=>{
           setNews(res.data)
           //setLoaded(true)
         })
