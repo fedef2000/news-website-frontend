@@ -1,0 +1,53 @@
+.formArticolo{
+    margin: 50px;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 30fr 1fr;
+    grid-template-areas: 
+    "title" ,
+    "subtitle",
+    "text",
+    "image",
+    ;
+    grid-gap: 50px;
+}
+
+.form--title{
+    font-family:Arial, Helvetica, sans-serif;
+    grid-area: 'title';
+}
+
+.form--subtitle{
+    font-family:Arial, Helvetica, sans-serif;
+    grid-area: 'subtitle';
+}
+
+.form--text{
+    font-family:Arial, Helvetica, sans-serif;
+    grid-area: 'text';
+}
+
+.form--image{
+    grid-area: 'image';
+}
+
+
+@media only screen and (max-width: 700px) {
+    .formArticolo{
+        margin: 20px;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr 70fr 1fr;
+        grid-template-areas: 
+        "title" ,
+        "subtitle",
+        "text",
+        "image",
+        ;
+        grid-gap: 5px;
+    }
+}
+
+.inviato{
+    margin: 30px;
+}

@@ -1,0 +1,44 @@
+*{
+    margin:0px
+}
+nav {
+    grid-area: nav;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: burlywood;
+    margin-bottom: 0px;
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-top: 0px;
+}
+
+nav > a > img {
+    max-height: 55px;
+    margin-right: 20px;
+    margin-left: 20px;
+}
+
+nav > a > h1 {
+    font-family: 'Inter';
+    font-weight: 900;
+    color:black;
+    font-size: 40px;
+    line-height: 30px;
+}
+
+nav > a:link{
+    text-decoration: none;
+}
+
+@media only screen and (max-width: 700px) {
+    nav{
+        position: fixed;
+        top:0;
+    }
+    nav > a > h1 {
+        font-size: 25px;
+        line-height: 30px;
+    }
+    
+}
