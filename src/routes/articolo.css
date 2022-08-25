@@ -56,11 +56,15 @@
     }
 
     .articolo-subtitle{
-        margin: 20px 0px 10px 10px;
+        margin: 3vw 3vw 8vw 3vw;
+        color: rgb(62, 57, 57);
         font-size: 5vw;
+        font-weight: 600;
+        text-align: justify;
+
     }
     .articolo-body{
-        margin: 0px 15px 0px 15px;
+        margin: 0px 3vw 0px 3vw;
         font-size: 4.8vw;
         line-height: 1.3;
     }
