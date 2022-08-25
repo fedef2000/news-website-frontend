@@ -20,8 +20,8 @@
 
 .articolo-subtitle{
     margin: 40px 0px 10px 5vw;
+    font-family: Inter;
     text-align: left;
-    font-family: adobe-garamond-pro,Garamond,Georgia,serif;
     font-weight: 600;
     color:rgb(55, 51, 51);
     font-size: 30px;
@@ -30,7 +30,7 @@
 .articolo-body{
     white-space: pre-line;
     margin: 20px 5vw 10px 5vw;
-    font-family: adobe-garamond-pro,Garamond,Georgia,serif;
+    font-family: Inter;
     font-weight: 300;
     color:black;
     font-size: 20px;
