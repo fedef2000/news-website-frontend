@@ -87,7 +87,7 @@
 @media only screen and (max-width: 685px) {
     .home-container{
         grid-template-columns: 1fr;
-        grid-template-rows: 10vh repeat(7, 120vw) 2.5rem;
+        grid-template-rows: 14vw repeat(7, 120vw) 2.5rem;
         grid-template-areas:
         "nav"
         "card0"
@@ -116,7 +116,7 @@
         height: 60vw;
     }
     .card--title{
-        font-size: clamp(3vw, 6vw, 6vw);
+        font-size: clamp(3vw, 6.5vw, 7vw);
         margin-left: 5vw;
         margin-right: 2vw;
         margin-top: 2vw;

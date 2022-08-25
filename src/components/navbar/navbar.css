@@ -15,8 +15,9 @@ nav {
 }
 
 nav > a > img {
-    max-height: 55px;
-    margin-right: 20px;
+    height: 50px;
+    margin-top: 2px;
+    margin-right: 15px;
     margin-left: 20px;
 }
 
@@ -37,7 +38,10 @@ nav > a:link{
         position: fixed;
         top:0;
         width: 100%;
-        height: 10vh;
+        height: 14vw;
+    }
+    nav > a > img {
+        height: 14vw;
     }
     nav > a > h1 {
         font-size: 5vw;

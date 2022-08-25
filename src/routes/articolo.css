@@ -4,7 +4,7 @@
 
 .articolo-title{
     margin: 40px 0px 30px 20px;
-    font-family: adobe-garamond-pro,Garamond,Georgia,serif;
+    font-family: Inter;
     font-weight: 700;
     color:black;
     font-size: 40px;
@@ -42,21 +42,20 @@
     .articolo-page{
         text-align: left;
     }
-    .articolo-title{
-        margin: 2vh 5vw 0vw 5vw;
-        font-family: adobe-garamond-pro,Garamond,Georgia,serif;
-        font-weight: 700;
-        color:black;
-        font-size: 7vw;
-        line-height: 8vw;
-    }
-
+    
     .articolo-image{
         width: 100%;
         height: 50vw;
         object-fit: fill;
-        margin-top: 10vh;
+        margin-top: 12vw;
         margin-left: 0px;
+    }
+    
+    .articolo-title{
+        margin: 2vh 5vw 0vw 5vw;
+        font-weight: 700;
+        font-size: 6.5vw;
+        line-height: 8vw;
     }
 
     .articolo-subtitle{
