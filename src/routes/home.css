@@ -108,12 +108,12 @@
 
     #card0 img {
         width: 100vw;
-        height: 70vw;
+        height: 60vw;
     }
     .article-image{
         border-radius: 0px;
         width: 100vw;
-        height: 70vw;
+        height: 60vw;
     }
     .card--title{
         font-size: clamp(3vw, 6vw, 6vw);
