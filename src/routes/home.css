@@ -28,7 +28,7 @@
 
 .card--title{
     color:black;
-    font-size: 40px;
+    font-size: 1rem;
     font-weight: 600;
     margin-top: 15px;
     margin-bottom: 15px;
@@ -40,14 +40,12 @@
     font-family: Georgia;
     font-weight: 400;
     margin-top: 10px;
-    margin-bottom: 200px;
 }
 
 .article-image{
     border-radius: 15px;
     width:100%;
     height:38vh;
-    object-fit: cover;
 }
 
 
@@ -87,10 +85,10 @@
 }
 
 
-@media only screen and (max-width: 700px) {
+@media only screen and (max-width: 685px) {
     .home-container{
         grid-template-columns: 1fr;
-        grid-template-rows: 4.5rem repeat(7, 70vh) 2.5rem;
+        grid-template-rows: 10vh repeat(7, 120vw) 2.5rem;
         grid-template-areas:
         "nav"
         "card0"
@@ -110,20 +108,22 @@
     }
 
     #card0 img {
-        height: 45vh;
+        height: 70vw;
     }
     .article-image{
         border-radius: 0px;
         width: 100vw;
-        height: 45vh;
+        height: 70vw;
     }
     .card--title{
-        font-size: 25px;
+        font-size: clamp(3vw, 6vw, 6vw);
         margin-left: 2px;
         margin-right: 2px;
+        margin-top: 2vw;
+        margin-bottom: 2vw;
     }
     .card--subtitle{
-        font-size: 15px;
+        font-size: 3.5vw;
     }
 }
 
@@ -133,5 +133,12 @@
     }
     100%{
         left:100%
+    }
+}
+
+
+@media only screen and (max-width: 320px) {
+    .article-image{
+        object-fit: cover;
     }
 }
