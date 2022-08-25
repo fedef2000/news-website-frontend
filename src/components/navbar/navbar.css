@@ -22,7 +22,7 @@ nav > a > img {
 }
 
 nav > a > h1 {
-    font-family: 'Inter';
+    font-family: 'Open Sans';
     font-weight: 900;
     color:black;
     font-size: 40px;
@@ -41,10 +41,12 @@ nav > a:link{
         height: 14vw;
     }
     nav > a > img {
-        height: 14vw;
+        margin-right: 0px;
+        margin-left: 0px;
+        height: 13vw;
     }
     nav > a > h1 {
-        font-size: 5vw;
+        font-size: 5.5vw;
     }
     
 }

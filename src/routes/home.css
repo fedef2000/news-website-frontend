@@ -1,6 +1,6 @@
 
 .home-container {
-    font-family: Inter;
+    font-family: 'Open Sans', sans-serif;
     display: grid;
     grid-template-columns:  1fr 1fr 1fr;
     grid-template-rows: 8vh 30vw repeat(2, 25vw) 2.5rem;
@@ -28,7 +28,7 @@
 .card--title{
     color:black;
     font-size: 2vw;
-    font-weight: 600;
+    font-weight: 700;
     margin-top: 15px;
     margin-bottom: 0.6vw;
 }
@@ -36,8 +36,7 @@
 .card--subtitle{
     color:black;
     font-size: 1.2vw;
-    font-family: Georgia;
-    font-weight: 400;
+    font-weight: 500;
 }
 
 .article-image{
@@ -125,7 +124,7 @@
         line-height: 8vw;
     }
     .card--subtitle{
-        font-size: 3.5vw;
+        font-size: 3.3vw;
         margin-left: 5vw;
         margin-right: 2vw;
         line-height: 5vw;
