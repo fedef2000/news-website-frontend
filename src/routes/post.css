@@ -7,7 +7,7 @@
     "title" ,
     "subtitle",
     "text",
-    "image",
+    "imageURL",
     ;
     grid-gap: 50px;
 }
@@ -27,8 +27,8 @@
     grid-area: 'text';
 }
 
-.form--image{
-    grid-area: 'image';
+.form--url{
+    grid-area: 'imageURL';
 }
 
 
@@ -42,7 +42,7 @@
         "title" ,
         "subtitle",
         "text",
-        "image",
+        "imageURL",
         ;
         grid-gap: 5px;
     }

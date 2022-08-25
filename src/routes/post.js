@@ -11,7 +11,7 @@ export default function Post(){
         title: "", 
         subtitle: "", 
         text: "", 
-        image: ""
+        imageURL: ""
     }
   )
   const [success, setSuccess] = useState(false);
@@ -27,13 +27,6 @@ export default function Post(){
           }
       })
   }
-  function handleChangeImage (event) {
-    setFormData(prevFormData => {
-      return {...prevFormData,
-        image: event.target.files[0]
-      }
-    })
-  }
   const handleSubmit = async (event) => {
       event.preventDefault()
       if(!formData.title){
@@ -42,35 +35,29 @@ export default function Post(){
         setErrMsg('Manca il sottotitolo!!')
       }else if(!formData.text){
         setErrMsg('Manca il testo!!')
-      }else if(!formData.image){
+      }else if(!formData.imageURL){
         setErrMsg('Manca l\'immagine!!')
       }
       
       else{
-
-      
-      const fd = new FormData()
-      fd.append('title', formData.title)
-      fd.append('subtitle', formData.subtitle)
-      fd.append('text', formData.text)
-      fd.append('image', formData.image)
-      try {
-        const response = await axios.post(POST_URL,
-            fd,
-            {
-                headers: { "x-auth-token": token }, 
+        try {
+          console.log(formData)
+          const response = await axios.post(POST_URL,
+              formData,
+              {
+                  headers: { "x-auth-token": token }, 
+              }
+          );
+          console.log(response)
+          setSuccess(true);
+        } catch (err) {
+          console.log(err)
+            if (!err?.response) {
+                setErrMsg('No Server Response');
+            }else{
+              setErrMsg(err.response.data)
             }
-        );
-        console.log(response)
-        setSuccess(true);
-      } catch (err) {
-        console.log(err)
-          if (!err?.response) {
-              setErrMsg('No Server Response');
-          }else{
-            setErrMsg(err.response.data)
-          }
-      }
+        }
       }
   }
 
@@ -108,12 +95,12 @@ export default function Post(){
 
           />
           <input
-              className="form--image"
-              type="file"
-              placeholder="immagine"
-              onChange={handleChangeImage}
-              name="image"
-              value={formData.image.filename}
+              className="form--url"
+              type="url"
+              placeholder="link all'immagine"
+              onChange={handleChange}
+              name="imageURL"
+              value={formData.imageURL}
               autoComplete="off"
           />
           <button>Pubblica</button>
