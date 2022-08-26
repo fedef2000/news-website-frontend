@@ -50,6 +50,11 @@ const Login = () => {
         }
     }
 
+    function handleLogOut(){
+        Cookies.remove('token')
+        setSuccess(false)
+    }
+
     return (
         <>
             {(success || token) ? (
@@ -59,6 +64,7 @@ const Login = () => {
                     <p>
                         <Link to="/post">Vai alla pagina per caricare un articolo</Link>
                     </p>
+                    <button onClick={handleLogOut}>Logout</button>
                 </section>
             ) : (
                 <section>
