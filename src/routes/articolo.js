@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from "react"
 import './articolo.css'
+import {Helmet} from "react-helmet-async"
 import axios from "axios"
 import { useParams } from "react-router-dom";
 import Navbar from "../components/navbar/Navbar";
@@ -25,10 +26,16 @@ export default function Articolo(){
 
   return(
     <>
+      
       <Navbar/>
       {
       Found? 
       <div className="articolo-page">
+        <Helmet>
+          <title>{`Sindaco del calciomercato | ${e.title}`}</title>
+          <link rel="canonical" href={`https://sindaco-del-calciomercato.herokuapp.com/api/articles/${params.id}`}/>
+          <meta name="description" content={e.text} />
+        </Helmet>
         <img className="articolo-image" alt="" src={e.imageURL}/>
         <p className="articolo--date">{parseDate(e.date)} | {e.tag}</p>
         <h1 className="articolo-title">{e.title}</h1>

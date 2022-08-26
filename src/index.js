@@ -9,12 +9,12 @@ import Home from './routes/Home';
 import Articolo from './routes/articolo';
 import Login from './routes/login';
 import Post from './routes/post';
-import { AuthProvider } from './context/AuthProvider';
- 
+import { HelmetProvider } from 'react-helmet-async';
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <AuthProvider>
+    <HelmetProvider>
     <Router>
       <Routes>
         
@@ -32,6 +32,6 @@ root.render(
         />
       </Routes>
     </Router>
-    </AuthProvider>
+    </HelmetProvider>
   </React.StrictMode>
 );
