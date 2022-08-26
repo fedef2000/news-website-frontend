@@ -4,6 +4,7 @@ import axios from "axios"
 import { useParams } from "react-router-dom";
 import Navbar from "../components/navbar/Navbar";
 import Footer from "../components/footer/Footer";
+import parseDate from "../function/parseDate";
 
 export default function Articolo(){
   const params = useParams();
@@ -30,6 +31,7 @@ export default function Articolo(){
       Found? 
       <div className="articolo-page">
         <img className="articolo-image" alt="" src={e.imageURL}/>
+        <p className="articolo--date">{parseDate(e.date)}</p>
         <h1 className="articolo-title">{e.title}</h1>
         <h2 className="articolo-subtitle">{e.subtitle}</h2>
         <p className="articolo-body">{e.text}</p>
