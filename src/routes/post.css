@@ -6,6 +6,7 @@
     grid-template-areas: 
     "title" ,
     "subtitle",
+    "tag",
     "text",
     "imageURL",
     ;
@@ -38,10 +39,11 @@
         margin: 20px;
         display: grid;
         grid-template-columns: 1fr;
-        grid-template-rows: 1fr 1fr 70fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr 70fr 1fr;
         grid-template-areas: 
         "title" ,
         "subtitle",
+        "tag",
         "text",
         "imageURL",
         ;

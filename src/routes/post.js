@@ -1,8 +1,9 @@
-import React, {useState } from "react"
+import React, {useState, useEffect } from "react"
 import axios from "axios"
 import Cookies from "js-cookie";
 import './post.css'
 import { useNavigate } from 'react-router-dom';
+import parseDate from "../function/parseDate";
 
 export default function Post(){
   const token = Cookies.get('token')
@@ -11,15 +12,23 @@ export default function Post(){
         title: "", 
         subtitle: "", 
         text: "", 
-        imageURL: ""
+        imageURL: "",
+        tag: ""
     }
   )
+  const [tags, setTags] = useState([]);
   const [success, setSuccess] = useState(false);
   const [pending, setPending] = useState(false);
   const [errMsg, setErrMsg] = useState('');
   const POST_URL = 'https://sindaco-del-calciomercato.herokuapp.com/api/articles';
-  const navigate = useNavigate()
   
+  useEffect(()=>{
+    axios.get("https://sindaco-del-calciomercato.herokuapp.com/api/tags").then((res)=>{
+          setTags(res.data)
+        })
+  },[])
+  
+  const navigate = useNavigate()
   function handleChange(event) {
     const {name, value} = event.target
     setFormData(prevFormData => {
@@ -29,18 +38,19 @@ export default function Post(){
           }
       })
   }
-  
 
   const handleSubmit = async (event) => {
       event.preventDefault()
       if(!formData.title){
-        setErrMsg('Manca il titolo!!')
+        setErrMsg('Manca il titolo!')
       }else if(!formData.subtitle){
-        setErrMsg('Manca il sottotitolo!!')
+        setErrMsg('Manca il sottotitolo!')
       }else if(!formData.text){
-        setErrMsg('Manca il testo!!')
+        setErrMsg('Manca il testo!')
       }else if(!formData.imageURL){
-        setErrMsg('Manca l\'immagine!!')
+        setErrMsg('Manca l\'immagine!')
+      }else if(!formData.tag){
+        setErrMsg('Manca il tag!')
       }else{
         try {
           setPending(true)
@@ -74,6 +84,7 @@ export default function Post(){
       <div >
         <p className={errMsg ? "errmsg" : "offscreen"} aria-live="assertive">{errMsg}</p>
         <form className="formArticolo" onSubmit={handleSubmit}>
+          
           <textarea
               className="form--title"
               type="text"
@@ -82,7 +93,9 @@ export default function Post(){
               name="title"
               value={formData.title}
               autoComplete="off"
-          /><textarea
+          />
+
+          <textarea
               className="form--subtitle"
               type="text"
               placeholder="Sottotitolo"
@@ -91,6 +104,19 @@ export default function Post(){
               value={formData.subtitle}
               autoComplete="off"
           />
+          <input 
+          list="tags"
+          className="form--tag"
+          type="text"
+          placeholder="tag"
+          onChange={handleChange}
+          name="tag"
+          value={formData.tag}
+          autoComplete="off"
+          />  
+          <datalist id="tags">
+            {tags.map((tag, key) => {return <option key={key} value={tag} />})}
+          </datalist>
           <textarea
               className="form--text"
               type="textarea"
@@ -113,9 +139,11 @@ export default function Post(){
           <p className={errMsg ? "errmsg" : "offscreen"} aria-live="assertive">{errMsg}</p>
           <button>Pubblica</button>
         </form>
+
         <h2>Anteprima</h2>
         <div className="anteprima">
           <img className="articolo-image" alt="" src={formData.imageURL}></img>
+          <p className="card--date">{parseDate((new Date()).toISOString())} | {formData.tag}</p>
           <h1 className="articolo-title">{formData.title}</h1>
           <h2 className="articolo-subtitle">{formData.subtitle}</h2>
           <p className="articolo-body">{formData.text}</p>

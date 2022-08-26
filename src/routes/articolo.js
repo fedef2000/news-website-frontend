@@ -30,7 +30,7 @@ export default function Articolo(){
       Found? 
       <div className="articolo-page">
         <img className="articolo-image" alt="" src={e.imageURL}/>
-        <p className="articolo--date">{parseDate(e.date)}</p>
+        <p className="articolo--date">{parseDate(e.date)} | {e.tag}</p>
         <h1 className="articolo-title">{e.title}</h1>
         <h2 className="articolo-subtitle">{e.subtitle}</h2>
         <p className="articolo-body">{e.text}</p>

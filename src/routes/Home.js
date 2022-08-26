@@ -21,7 +21,7 @@ export default function Body(){
       return(
         <div key={e._id} id={`card${i}`} className={`card`} onClick={()=> navigate(`/articolo/${e._id}`)}>
           <img className="card--image" alt="" src={e.imageURL}/>
-          <p className="card--date">{parseDate(e.date)}</p>
+          <p className="card--date">{parseDate(e.date)} | {e.tag}</p>
           <h2 className="card--title">{e.title}</h2>
           <p className="card--subtitle">{e.subtitle}</p>
         </div>
