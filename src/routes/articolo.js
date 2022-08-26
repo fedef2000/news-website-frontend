@@ -10,7 +10,6 @@ export default function Articolo(){
   const params = useParams();
   const [e, setE] = useState({})
   const [Found, setFound] = useState(true)
-
   useEffect(() => {
     axios.get(`https://sindaco-del-calciomercato.herokuapp.com/api/articles/${params.id}`)
     .then((res)=>{

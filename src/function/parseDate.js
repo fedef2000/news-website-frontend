@@ -1,4 +1,7 @@
 export default function parseDate(date){
+    if(!date){
+        return
+    }
     const day = date.substring(8,10)
     let month = ""
     switch (date.substring(5,7)) {
