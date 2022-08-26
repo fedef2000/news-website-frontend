@@ -1,4 +1,4 @@
-import React, {useState} from "react"
+import React, {useState } from "react"
 import axios from "axios"
 import Cookies from "js-cookie";
 import './post.css'
@@ -15,9 +15,11 @@ export default function Post(){
     }
   )
   const [success, setSuccess] = useState(false);
+  const [pending, setPending] = useState(false);
   const [errMsg, setErrMsg] = useState('');
   const POST_URL = 'https://sindaco-del-calciomercato.herokuapp.com/api/articles';
   const navigate = useNavigate()
+  
   function handleChange(event) {
     const {name, value} = event.target
     setFormData(prevFormData => {
@@ -27,6 +29,8 @@ export default function Post(){
           }
       })
   }
+  
+
   const handleSubmit = async (event) => {
       event.preventDefault()
       if(!formData.title){
@@ -37,35 +41,38 @@ export default function Post(){
         setErrMsg('Manca il testo!!')
       }else if(!formData.imageURL){
         setErrMsg('Manca l\'immagine!!')
-      }
-      
-      else{
+      }else{
         try {
+          setPending(true)
           console.log(formData)
-          const response = await axios.post(POST_URL,
+          await axios.post(POST_URL,
               formData,
               {
                   headers: { "x-auth-token": token }, 
               }
           );
-          console.log(response)
           setSuccess(true);
+          setPending(false)
         } catch (err) {
           console.log(err)
             if (!err?.response) {
                 setErrMsg('No Server Response');
             }else{
+              setPending(false)
               setErrMsg(err.response.data)
             }
         }
       }
-  }
+    }
 
-
-  return(
-    <div>
+    return(
+      <div>
     {token ? 
-      success ? <div className="inviato"><p className="inviato">articolo inviato!</p><button onClick={()=>{navigate('/')}}> torna alla home </button></div> : <div>
+      success ? <div><p className="inviato">articolo inviato!</p><button onClick={()=>{navigate('/')}}> torna alla home </button></div> 
+      : pending ? <p className="inviato">In attesa di risposta dal Server</p>
+      :
+      <div >
+        <p className={errMsg ? "errmsg" : "offscreen"} aria-live="assertive">{errMsg}</p>
         <form className="formArticolo" onSubmit={handleSubmit}>
           <textarea
               className="form--title"
@@ -103,9 +110,16 @@ export default function Post(){
               value={formData.imageURL}
               autoComplete="off"
           />
+          <p className={errMsg ? "errmsg" : "offscreen"} aria-live="assertive">{errMsg}</p>
           <button>Pubblica</button>
         </form>
-        <p className={errMsg ? "errmsg" : "offscreen"} aria-live="assertive">{errMsg}</p>
+        <h2>Anteprima</h2>
+        <div className="anteprima">
+          <img className="articolo-image" alt="" src={formData.imageURL}></img>
+          <h1 className="articolo-title">{formData.title}</h1>
+          <h2 className="articolo-subtitle">{formData.subtitle}</h2>
+          <p className="articolo-body">{formData.text}</p>
+        </div>
       </div>
       :
       <div>

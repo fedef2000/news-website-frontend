@@ -13,7 +13,6 @@ export default function Body(){
     useEffect(() => {
         axios.get("https://sindaco-del-calciomercato.herokuapp.com/api/articles").then((res)=>{
           setNews(res.data)
-          //setLoaded(true)
         })
       }, [])
     
@@ -21,8 +20,8 @@ export default function Body(){
 
       return(
         <div key={e._id} id={`card${i}`} className={`card`} onClick={()=> navigate(`/articolo/${e._id}`)}>
-          <img className="article--image" alt="" src={e.imageURL}/>
-          <p className="article--date">{parseDate(e.date)}</p>
+          <img className="card--image" alt="" src={e.imageURL}/>
+          <p className="card--date">{parseDate(e.date)}</p>
           <h2 className="card--title">{e.title}</h2>
           <p className="card--subtitle">{e.subtitle}</p>
         </div>

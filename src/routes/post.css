@@ -29,6 +29,7 @@
 
 .form--url{
     grid-area: 'imageURL';
+    font-size: 10px;
 }
 
 

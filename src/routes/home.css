@@ -25,6 +25,11 @@
     text-decoration: none;
 }
 
+.card:hover{
+    text-decoration: underline;
+    cursor:pointer;
+}
+
 .card--title{
     color:black;
     font-size: 2vw;
@@ -32,14 +37,13 @@
     margin-top: 15px;
     margin-bottom: 0.6vw;
 }
-
 .card--subtitle{
     color:black;
     font-size: 1.2vw;
     font-weight: 500;
 }
 
-.article--image{
+.card--image{
     border-radius: 15px;
     width:31vw;
     height:13vw;
@@ -109,13 +113,13 @@
         width: 100vw;
         height: 60vw;
     }
-    .article--image{
+    .card--image{
         border-radius: 0px;
         width: 100vw;
         height: 60vw;
         margin-bottom: 0px;
     }
-    .article--date{
+    .card--date{
         text-align: left;
         margin-left: 3vw;
         margin-top: 1vw;
@@ -153,7 +157,7 @@
 
 
 @media only screen and (max-width: 320px) {
-    .article--image{
+    .card--image{
         object-fit: cover;
     }
 }
