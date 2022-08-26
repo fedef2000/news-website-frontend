@@ -1,12 +1,10 @@
 import { useRef, useState, useEffect } from 'react';
-//import AuthContext from "../context/AuthProvider";
 import Cookies from 'js-cookie'
 import axios from '../api/axios';
-import { Link, useNavigate } from 'react-router-dom';
-
+import { useNavigate } from 'react-router-dom';
+import './login.css'
 const LOGIN_URL = 'https://sindaco-del-calciomercato.herokuapp.com/api/auth';
-const Login = () => {
-    //const { setAuth } = useContext(AuthContext);
+export default function Login() {
     const userRef = useRef();
     const errRef = useRef();
     const token = Cookies.get('token')
@@ -53,45 +51,45 @@ const Login = () => {
     function handleLogOut(){
         Cookies.remove('token')
         setSuccess(false)
+        window.location.reload()
     }
 
     return (
         <>
             {(success || token) ? (
-                <section>
-                    <h1>Sei già loggato</h1>
+                <div className='logged'>
+                    <h2>Sei già loggato</h2>
                     <br />
-                    <p>
-                        <Link to="/post">Vai alla pagina per caricare un articolo</Link>
-                    </p>
+                    <button onClick={()=>{navigate('/post')}}>Vai alla pagina per pubblicare un articolo</button>
+                    <br />
                     <button onClick={handleLogOut}>Logout</button>
-                </section>
+                </div>
             ) : (
-                <section>
+                <section className='login--page'>
                     <p ref={errRef} className={errMsg ? "errmsg" : "offscreen"} aria-live="assertive">{errMsg}</p>
-                    <h1>Sign In</h1>
+                    <h1>Login</h1>
                     <form onSubmit={handleSubmit}>
-                        <label htmlFor="user">user:</label>
                         <input
+                            className="login--user"
+                            placeholder='User'
                             type="text"
-                            id="user"
                             ref={userRef}
                             autoComplete="off"
                             onChange={(e) => setUser(e.target.value)}
                             value={user}
+                            autocapitalize="none"
                             required
                         />
-
-                        <label htmlFor="password">Password:</label>
                         <input
                             type="password"
-                            id="password"
+                            className="login--password"
+                            placeholder='Password'
                             onChange={(e) => setPwd(e.target.value)}
                             value={pwd}
                             required
                         />
                         <br/>
-                        <button>Sign In</button>
+                        <button>Accedi</button>
                     </form>
                     <button onClick={()=>{navigate('/')}}>torna alla home</button>
                 </section>
@@ -99,5 +97,3 @@ const Login = () => {
         </>
     )
 }
-
-export default Login

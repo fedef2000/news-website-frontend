@@ -1,0 +1,34 @@
+.login--page{
+    margin: 6vw
+}
+
+.login--page > form{
+    margin: 0vw
+}
+
+
+.login--page > *{
+    margin-bottom: 4vw
+}
+
+.login--user{
+    margin-bottom: 4vw
+}
+
+.login--password{
+    margin-bottom: 4vw
+}
+
+.login--page > form > button{
+    margin-bottom: 10vw
+}
+
+
+.logged {
+    margin: 4vw
+}
+
+.logged > button {
+    margin-bottom: 6vw;
+    height: 10vw;
+}
