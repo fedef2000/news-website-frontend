@@ -148,13 +148,17 @@
         height: 60vw;
         margin-bottom: 0px;
     }
-    .card--date{
+    .card--info{
+        display: flex;
         text-align: left;
         margin-left: 3vw;
         margin-top: 1vw;
         margin-bottom: 0vw;
         font-size: 3.5vw;
         font-weight: 600;
+    }
+    .card--tag{
+        margin-left: 2vw;
     }
     .card--title{
         font-size: clamp(3vw, 6.5vw, 7vw);
