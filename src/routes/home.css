@@ -3,12 +3,13 @@
     font-family: 'Open Sans', sans-serif;
     display: grid;
     grid-template-columns:  1fr 1fr 1fr;
-    grid-template-rows: 8vh 30vw repeat(2, 25vw) 2.5rem;
+    grid-template-rows: 8vh auto repeat(5, auto) 2.5rem;
     grid-template-areas:
     "nav nav nav "
     "card0 card0 ."
     "card1 card2 card3"
     "card4 card5 card6"
+    "card7 card8 card9"
     "footer footer footer "
     ;
     grid-gap: 0.5vw;
@@ -85,12 +86,20 @@
 #card6 {
     grid-area: card6;
 }
-
+#card7 {
+    grid-area: card7;
+}
+#card8 {
+    grid-area: card8;
+}
+#card9 {
+    grid-area: card9;
+}
 
 @media only screen and (max-width: 900px) {
     .home-container{
         grid-template-columns: 1fr;
-        grid-template-rows: 14vw repeat(7, auto) 2.5rem;
+        grid-template-rows: 14vw repeat(10, auto) repeat(3, auto);
         grid-template-areas:
         "nav"
         "card0"
@@ -100,9 +109,29 @@
         "card4" 
         "card5" 
         "card6"
+        "card7"
+        "card8"
+        "card9"
+        "prevpage"
+        "nextpage"
         "footer"
         ;
         grid-gap: 0px;
+    }
+
+    .prevPage {
+        grid-area: prevpage;
+        margin: 3vw auto 5vw auto;
+        padding: 1vw 2vw 1vw 2vw;
+        font-weight: 600;      
+        border: 1px solid
+    }
+    .nextPage {
+        font-weight: 600;    
+        padding: 1vw 2vw 1vw 2vw;
+        margin: auto;
+        border: 1px solid;
+        grid-area: nextpage;
     }
     .card{
         padding: 0px;
@@ -143,6 +172,9 @@
         margin-bottom: 4vw;
         line-height: 5vw;
         text-align: left;
+    }
+    .footer{
+        
     }
 }
 
