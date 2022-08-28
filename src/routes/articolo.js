@@ -7,6 +7,7 @@ import Navbar from "../components/navbar/Navbar";
 import Footer from "../components/footer/Footer";
 import parseDate from "../function/parseDate";
 import { useNavigate } from 'react-router-dom';
+import ReactMarkdown from 'react-markdown'
 
 export default function Articolo(){
   const navigate = useNavigate()
@@ -42,10 +43,10 @@ export default function Articolo(){
         <div className="articolo--info">
             <p className="articolo--date" onClick={()=> navigate(`/articolo/${e._id}`)}>{parseDate(e.date)} |</p> 
             <p className="articolo--tag" onClick={()=> navigate(`/tag/${e.tag}`)}>{e.tag}</p>
-          </div>
+        </div>
         <h1 className="articolo-title">{e.title}</h1>
         <h2 className="articolo-subtitle">{e.subtitle}</h2>
-        <p className="articolo-body">{e.text}</p>
+        <ReactMarkdown className="articolo-body" children={e.text}/>
       </div> 
       :
       <div>

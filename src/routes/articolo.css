@@ -52,7 +52,7 @@
     }
     
     .articolo-image{
-        width: 100%;
+        width: 100vw;
         height: 50vw;
         object-fit: fill;
         margin-top: 12vw;
@@ -92,6 +92,33 @@
         font-size: 4.8vw;
         line-height: 1.5;
     }
+    .articolo-body a:link{
+        text-decoration: none;
+    }
+    .articolo-body a {
+        color:rgb(234, 144, 0);
+        font-weight: 700;
+    }
+    .articolo-body img {
+        margin: 4vw 0vw 2vw 5vw;
+        width: 80vw;
+        height: 50vw;
+        object-fit: fill;
+    }
+    .articolo-body blockquote {
+        background: #f9f9f9;
+        border-left: 2vw solid #ccc;
+        margin: 1vw 2vw;
+        padding: 4vw 2.5vw;
+        display: flex;
+        align-items: center;
+    }
+    .articolo-body blockquote p {
+        display: inline;
+        font-size: 4vw;
+        font-style: italic;
+    }
+
     .nonTrovato{
         margin: 20vw 0px auto 0px;
         text-align: center;

@@ -3,6 +3,7 @@ import axios from "axios"
 import Cookies from "js-cookie";
 import './post.css'
 import { useNavigate } from 'react-router-dom';
+import ReactMarkdown from 'react-markdown'
 import parseDate from "../function/parseDate";
 
 export default function Post(){
@@ -143,10 +144,13 @@ export default function Post(){
         <h2>Anteprima</h2>
         <div className="anteprima">
           <img className="articolo-image" alt="" src={formData.imageURL}></img>
-          <p className="card--date">{parseDate((new Date()).toISOString())} | {formData.tag}</p>
+          <div className="articolo--info">
+            <p className="articolo--date" >{parseDate((new Date()).toISOString())} |</p> 
+            <p className="articolo--tag" >{formData.tag}</p>
+          </div>
           <h1 className="articolo-title">{formData.title}</h1>
           <h2 className="articolo-subtitle">{formData.subtitle}</h2>
-          <p className="articolo-body">{formData.text}</p>
+          <ReactMarkdown linkTarget="_blank" className="articolo-body" children={formData.text}/>
         </div>
       </div>
       :
