@@ -8,24 +8,39 @@ import Footer from "../components/footer/Footer";
 import parseDate from "../function/parseDate";
 import { useNavigate } from 'react-router-dom';
 import ReactMarkdown from 'react-markdown'
+import Card from "../components/card/Card";
 
 export default function Articolo(){
   const navigate = useNavigate()
   const params = useParams();
   const [e, setE] = useState({})
   const [Found, setFound] = useState(true)
+  const [correlated, setCorrelated] = useState([])
+  const [foundCorrelated, setFoundCorrelated] = useState(false)
+  
   useEffect(() => {
     axios.get(`https://sindaco-del-calciomercato.herokuapp.com/api/articles/${params.id}`)
     .then((res)=>{
       setE(res.data)
-
-      
     })
-    .catch(() =>{
-      setFound(false)
-    })
+    .catch(()=>{setFound(false)})
   },[params.id])    
-  
+
+  useEffect(()=>{
+    axios.get(`https://sindaco-del-calciomercato.herokuapp.com/api/tags/${e.tag}`)
+    .then((res)=>{
+      if((res.data.length - 1) !== 0){
+        const index = res.data.findIndex((element) => {return JSON.stringify(element) === JSON.stringify(e)});
+        if (index > -1) { 
+          res.data.splice(index, 1); 
+        }
+        setCorrelated(res.data)
+        setFoundCorrelated(true)
+      }else{
+        setFoundCorrelated(false)
+      }
+    })
+  },[e])  
 
   return(
     <>
@@ -33,6 +48,7 @@ export default function Articolo(){
       <Navbar/>
       {
       Found? 
+      <>
       <div className="articolo-page">
         <Helmet>
           <title>{`Sindaco del calciomercato | ${e.title}`}</title>
@@ -47,7 +63,14 @@ export default function Articolo(){
         <h1 className="articolo-title">{e.title}</h1>
         <h2 className="articolo-subtitle">{e.subtitle}</h2>
         <ReactMarkdown className="articolo-body" children={e.text}/>
-      </div> 
+      </div>
+      {foundCorrelated && 
+      <div className="correlated--container">
+        <h2 className="correlated--title">Articoli correlati</h2>
+        {correlated.map((article) => {return <Card key={article._id} {...article}/>})}
+      </div>
+      }
+      </> 
       :
       <div>
         <p className="nonTrovato">Articolo non trovato</p>
