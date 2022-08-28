@@ -4,7 +4,7 @@ import './card.css'
 export default function Card(props) {
     const navigate = useNavigate()
     return(
-        <div className={`card`}>
+        <div className={`card`} onClick={()=>{ navigate(`/articolo/${props._id}`); document.documentElement.scrollTop = 0}}>
           <img className="card--image" alt="" src={props.imageURL} onClick={()=> navigate(`/articolo/${props._id}`)}/>
           <div className="card--info">
             <p className="card--date" onClick={()=> navigate(`/articolo/${props._id}`)}>{parseDate(props.date)} |</p> 
