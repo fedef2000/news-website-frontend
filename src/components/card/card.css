@@ -1,0 +1,74 @@
+
+.card {
+    border-radius: 15px;
+    text-align: center;
+}
+
+.card > a:link{
+    text-decoration: none;
+}
+
+.card:hover{
+    text-decoration: underline;
+    cursor:pointer;
+}
+
+.card--title{
+    color:black;
+    font-size: 2vw;
+    font-weight: 700;
+    margin-top: 15px;
+    margin-bottom: 0.6vw;
+}
+.card--subtitle{
+    color:black;
+    font-size: 1.2vw;
+    font-weight: 500;
+}
+
+.card--image{
+    border-radius: 15px;
+    width:31vw;
+    height:13vw;
+}
+
+@media only screen and (max-width: 900px) {
+    .card{
+        padding: 0px;
+        border-radius: 0px;
+    }
+
+    .card--image{
+        border-radius: 0px;
+        width: 94vw;
+        height: 55vw;
+        margin: 0vw 3vw;
+    }
+    .card--info{
+        display: flex;
+        text-align: left;
+        margin-left: 3vw;
+        margin-top: 1vw;
+        margin-bottom: 1vw;
+        font-size: 3.5vw;
+        font-weight: 600;
+    }
+    .card--tag{
+        margin-left: 2vw;
+    }
+    .card--title{
+        font-size: clamp(3vw, 6.5vw, 7vw);
+        margin: 0vw 3vw 2vw 3vw;
+        text-align: left;
+        line-height: 8vw;
+    }
+    .card--subtitle{
+        font-size: 3.3vw;
+        margin-left: 3vw;
+        margin-right: 3vw;
+        margin-bottom: 4vw;
+        line-height: 5vw;
+        text-align: left;
+    }
+
+}
