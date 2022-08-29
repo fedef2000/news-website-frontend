@@ -21,7 +21,6 @@ export default function Delete(){
 
     useEffect(()=>{
         if(Object.keys(selected).length > 0 && confirm){
-            console.log(selected._id)
             const API_DELETE = `https://sindaco-del-calciomercato.herokuapp.com/api/articles/${selected._id}`
             axios.delete(API_DELETE,{headers: { 'x-auth-token': token}})
             .then((res)=>{

@@ -11,6 +11,7 @@ import Login from './routes/login/login';
 import Tag from './routes/tag/tag';
 import Post from './routes/post/post';
 import Delete from './routes/delete/delete';
+import Update from './routes/update/update';
 import { HelmetProvider } from 'react-helmet-async';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -19,13 +20,13 @@ root.render(
     <HelmetProvider>
     <Router>
       <Routes>
-        
         <Route path="/" element={<Home />} />
         <Route path="/articolo/:id" element={<Articolo />}/>
         <Route path="/tag/:tag" element={<Tag />}/>
         <Route path="/login" element={<Login />} />
         <Route path="/post" element={<Post />} />
         <Route path="/delete" element={<Delete />} />
+        <Route path="/update" element={<Update />} />
         <Route
           path="*"
           element={
