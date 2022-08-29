@@ -9,6 +9,7 @@ import parseDate from "../../function/parseDate";
 import { useNavigate } from 'react-router-dom';
 import ReactMarkdown from 'react-markdown'
 import Card from "../../components/card/Card";
+import rehypeRaw from 'rehype-raw'
 
 export default function Articolo(){
   const navigate = useNavigate()
@@ -62,7 +63,7 @@ export default function Articolo(){
         </div>
         <h1 className="articolo-title">{e.title}</h1>
         <h2 className="articolo-subtitle">{e.subtitle}</h2>
-        <ReactMarkdown className="articolo-body" children={e.text}/>
+        <ReactMarkdown rehypePlugins={[rehypeRaw]} className="articolo-body" children={e.text}/>
       </div>
       {foundCorrelated && 
       <div className="correlated--container">

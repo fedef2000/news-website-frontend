@@ -124,6 +124,11 @@
         margin: 0vw 0vw 4vw 4vw;
 
     }
+    iframe {
+        margin: 4vw 0vw 2vw 5vw;
+        width: 80vw;
+        height: auto;
+    }
     .nonTrovato{
         margin: 20vw 0px auto 0px;
         text-align: center;
