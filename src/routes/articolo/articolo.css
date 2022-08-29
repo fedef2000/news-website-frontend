@@ -103,7 +103,7 @@
     .articolo-body img {
         margin: 4vw 0vw 2vw 5vw;
         width: 80vw;
-        height: 50vw;
+        height: auto;
         object-fit: fill;
     }
     .articolo-body blockquote {

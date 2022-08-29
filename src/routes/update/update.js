@@ -3,6 +3,8 @@ import axios from "axios"
 import Cookies from "js-cookie";
 import './update.css'
 import { useNavigate } from 'react-router-dom';
+import parseDate from '../../function/parseDate'
+import ReactMarkdown from 'react-markdown'
 
 export default function Update(){
     const navigate = useNavigate()
@@ -141,6 +143,17 @@ export default function Update(){
                         autoComplete="off"
                     />
                     <p className={errMsg ? "errmsg" : "offscreen"} aria-live="assertive">{errMsg}</p>
+                    <h2>Anteprima</h2>
+                    <div className="anteprima">
+                      <img className="articolo-image" alt="" src={formData.imageURL}></img>
+                      <div className="articolo--info">
+                        <p className="articolo--date" >{parseDate((new Date()).toISOString())} |</p> 
+                        <p className="articolo--tag" >{formData.tag}</p>
+                      </div>
+                      <h1 className="articolo-title">{formData.title}</h1>
+                      <h2 className="articolo-subtitle">{formData.subtitle}</h2>
+                      <ReactMarkdown linkTarget="_blank" className="articolo-body" children={formData.text}/>
+                    </div>
                     <button>Aggiorna</button>
                 </form>
             </div>
