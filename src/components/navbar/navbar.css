@@ -37,7 +37,7 @@ nav > a:link{
     nav{
         position: fixed;
         top:0;
-        width: 100%;
+        width: 100vw;
         height: 14vw;
     }
     nav > a > img {
