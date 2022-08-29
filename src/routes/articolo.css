@@ -85,11 +85,11 @@
         font-size: 4.7vw;
         line-height: 1.3;
         text-align: justify;
-        border-bottom: 30px solid #F1F1F1;
+        border-bottom: 4px solid #F1F1F1;
 
     }
     .articolo-body{
-        margin: 5vh 5vw 0px 5vw;
+        margin: 3vh 5vw 0px 5vw;
         font-size: 4.4vw;
         line-height: 1.6;
     }
