@@ -52,8 +52,11 @@ export default function Delete(){
                 }
               </div>
             :<div>
+                <br/>
                 <h2>Sei Sicuro di voler cancellare questo articolo?</h2>
+                <br/>
                 <h2>Una volta cancellato non si può più recuperare</h2>
+                <br/>
                 <Card disableLink={true} {...selected}/>
                 <button className="delete--no" onClick={()=>{setSelected({})}}>No, Torna indietro</button>
                 <br />
