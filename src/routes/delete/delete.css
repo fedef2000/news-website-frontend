@@ -9,11 +9,11 @@
     margin: 4vw;
     padding: 2vw;
     font-style: bold;
-    background-color: lightgreen;
+    background-color: red;
 }
 .delete--no{
+    background-color: lightgreen;
     font-size: 5vw;
-    background-color: red;
     border: 2px solid;
     margin: 4vw;
     padding: 2vw;
