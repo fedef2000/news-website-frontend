@@ -3,15 +3,21 @@ import parseDate from "../../function/parseDate";
 import './card.css'
 export default function Card(props) {
     const navigate = useNavigate()
+    function handleClick(){
+      if(!props.disableLink){
+        navigate(`/articolo/${props._id}`)
+        setTimeout(()=>{document.documentElement.scrollTop = 0},200)
+      }
+    }
     return(
-        <div className={`card`} onClick={()=>{ navigate(`/articolo/${props._id}`); document.documentElement.scrollTop = 0}}>
-          <img className="card--image" alt="" src={props.imageURL} onClick={()=> navigate(`/articolo/${props._id}`)}/>
+        <div className={`card`} >
+          <img className="card--image" alt="" src={props.imageURL} onClick={handleClick}/>
           <div className="card--info">
-            <p className="card--date" onClick={()=> navigate(`/articolo/${props._id}`)}>{parseDate(props.date)} |</p> 
+            <p className="card--date" onClick={handleClick}>{parseDate(props.date)} |</p> 
             <p className="card--tag" onClick={()=> navigate(`/tag/${props.tag}`)}>{props.tag}</p>
           </div>
-          <h2 className="card--title" onClick={()=> navigate(`/articolo/${props._id}`)}>{props.title}</h2>
-          <p className="card--subtitle" onClick={()=> navigate(`/articolo/${props._id}`)}>{props.subtitle}</p>
+          <h2 className="card--title" onClick={handleClick}>{props.title}</h2>
+          <p className="card--subtitle" onClick={handleClick}>{props.subtitle}</p>
         </div>
     )
 }

@@ -1,10 +1,10 @@
 import React, {useEffect, useState} from "react"
 import axios from "axios"
 import './home.css'
-import Navbar from "../components/navbar/Navbar";
-import Footer from "../components/footer/Footer";
+import Navbar from "../../components/navbar/Navbar";
+import Footer from "../../components/footer/Footer";
 import { Helmet } from "react-helmet-async";
-import Card from "../components/card/Card";
+import Card from "../../components/card/Card";
 
 export default function Body(){
     const [news, setNews] = useState([])

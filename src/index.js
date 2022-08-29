@@ -5,12 +5,13 @@ import {
   Routes,
   Route,
 } from "react-router-dom";
-import Home from './routes/Home';
-import Articolo from './routes/articolo';
-import Login from './routes/login';
-import Post from './routes/post';
+import Home from './routes/home/Home';
+import Articolo from './routes/articolo/articolo';
+import Login from './routes/login/login';
+import Tag from './routes/tag/tag';
+import Post from './routes/post/post';
+import Delete from './routes/delete/delete';
 import { HelmetProvider } from 'react-helmet-async';
-import Tag from './routes/tag';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -24,11 +25,13 @@ root.render(
         <Route path="/tag/:tag" element={<Tag />}/>
         <Route path="/login" element={<Login />} />
         <Route path="/post" element={<Post />} />
+        <Route path="/delete" element={<Delete />} />
         <Route
           path="*"
           element={
             <main style={{ padding: "1rem" }}>
-              <p>There's nothing here!</p>
+              <p>Pagina non trovata</p>
+              <button>Torna alla home</button>
             </main>
           }
         />

@@ -4,7 +4,7 @@ import Cookies from "js-cookie";
 import './post.css'
 import { useNavigate } from 'react-router-dom';
 import ReactMarkdown from 'react-markdown'
-import parseDate from "../function/parseDate";
+import parseDate from "../../function/parseDate";
 
 export default function Post(){
   const token = Cookies.get('token')

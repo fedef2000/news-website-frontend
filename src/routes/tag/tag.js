@@ -3,9 +3,9 @@ import './tag.css'
 import {Helmet} from "react-helmet-async"
 import axios from "axios"
 import { useParams } from "react-router-dom";
-import Navbar from "../components/navbar/Navbar";
-import Footer from "../components/footer/Footer";
-import parseDate from "../function/parseDate";
+import Navbar from "../../components/navbar/Navbar";
+import Footer from "../../components/footer/Footer";
+import parseDate from "../../function/parseDate";
 import { useNavigate } from 'react-router-dom';
 
 export default function Tag(){

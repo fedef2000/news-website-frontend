@@ -1,6 +1,6 @@
 import { useRef, useState, useEffect } from 'react';
 import Cookies from 'js-cookie'
-import axios from '../api/axios';
+import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import './login.css'
 const LOGIN_URL = 'https://sindaco-del-calciomercato.herokuapp.com/api/auth';
@@ -29,7 +29,6 @@ export default function Login() {
                 }
             );
             const accessToken = response.data;
-            //setAuth({accessToken});
             Cookies.set('token', accessToken, { expires: 7 })
             setUser('');
             setPwd('');

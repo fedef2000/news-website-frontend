@@ -3,12 +3,12 @@ import './articolo.css'
 import {Helmet} from "react-helmet-async"
 import axios from "axios"
 import { useParams } from "react-router-dom";
-import Navbar from "../components/navbar/Navbar";
-import Footer from "../components/footer/Footer";
-import parseDate from "../function/parseDate";
+import Navbar from "../../components/navbar/Navbar";
+import Footer from "../../components/footer/Footer";
+import parseDate from "../../function/parseDate";
 import { useNavigate } from 'react-router-dom';
 import ReactMarkdown from 'react-markdown'
-import Card from "../components/card/Card";
+import Card from "../../components/card/Card";
 
 export default function Articolo(){
   const navigate = useNavigate()
@@ -51,7 +51,7 @@ export default function Articolo(){
       <>
       <div className="articolo-page">
         <Helmet>
-          <title>{`Sindaco del calciomercato | ${e.title}`}</title>
+          <title>{e.title}</title>
           <link rel="canonical" href={`https://www.sindacodelcalciomercato.it/articolo/${params.id}`}/>
           <meta name="description" content={e.text} />
         </Helmet>

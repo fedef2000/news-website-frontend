@@ -1,0 +1,20 @@
+.delete--option{
+    border: 2px solid;
+    margin: 6vw;
+    padding: 2vw;
+}
+.delete--yes{
+    font-size: 4vw;
+    border: 2px solid;
+    margin: 4vw;
+    padding: 2vw;
+    font-style: bold;
+    background-color: lightgreen;
+}
+.delete--no{
+    font-size: 5vw;
+    background-color: red;
+    border: 2px solid;
+    margin: 4vw;
+    padding: 2vw;
+}
