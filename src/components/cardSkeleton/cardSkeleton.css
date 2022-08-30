@@ -1,0 +1,19 @@
+@media only screen and (max-width: 900px) {
+    .skeleton{
+        margin-bottom: 2vw;
+    }
+    .skeleton--info{
+        width: 40vw;
+        margin: 1vw 0vw 1vw 3vw;
+        font-size: 3.5vw;
+    }
+    .skeleton--title{
+        margin: 0vw 3vw 1vw 3vw;
+        line-height: 7vw;
+    }
+    .skeleton--subtitle{
+        margin: 0vw 3vw 0vw 3vw;
+        line-height: 3.5vw;
+    }
+
+}

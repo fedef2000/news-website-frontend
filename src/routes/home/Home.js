@@ -5,6 +5,7 @@ import Navbar from "../../components/navbar/Navbar";
 import Footer from "../../components/footer/Footer";
 import { Helmet } from "react-helmet-async";
 import Card from "../../components/card/Card";
+import CardSkeleton from "../../components/cardSkeleton/cardSkeleton";
 
 export default function Body(){
     const [news, setNews] = useState([])
@@ -49,7 +50,15 @@ export default function Body(){
           />
           </Helmet>
           <Navbar />
-          {loaded && 
+          {!loaded ? 
+          <div>
+            <CardSkeleton />
+            <CardSkeleton />
+            <CardSkeleton />
+            <CardSkeleton />
+            <CardSkeleton />
+          </div>
+          :
           <div className="card--container">
           {news.map((n)=>{return <Card key={n._id} {...n}/>})}
           {!firstPage && <p className="prevPage" onClick={prevPage}>Torna alla pagina precedente</p>}

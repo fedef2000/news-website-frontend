@@ -10,30 +10,33 @@ export default function Post(){
   const token = Cookies.get('token')
   const [formData, setFormData] = useState(
     {
-        title: "", 
-        subtitle: "", 
-        text: "", 
-        imageURL: "",
-        tag: ""
+        title: Cookies.get('title'), 
+        subtitle: Cookies.get('subtitle'), 
+        text: Cookies.get('text'), 
+        imageURL: Cookies.get('imageURL'),
+        tag: Cookies.get('tag')
     }
   )
   const [tags, setTags] = useState([]);
   const [success, setSuccess] = useState(false);
   const [pending, setPending] = useState(false);
   const [errMsg, setErrMsg] = useState('');
+  const navigate = useNavigate()
   const POST_URL = 'https://sindaco-del-calciomercato.herokuapp.com/api/articles';
   
+  //chiamata a /api/tag per avere tutti i tag come suggerimenti nel <datalist>
   useEffect(()=>{
     axios.get("https://sindaco-del-calciomercato.herokuapp.com/api/tags").then((res)=>{
           setTags(res.data)
         })
   },[])
   
-  const navigate = useNavigate()
+
   function handleChange(event) {
     const {name, value} = event.target
+    Cookies.set(name, value)
     setFormData(prevFormData => {
-        return {
+      return {
             ...prevFormData,
             [name]: value
           }
@@ -64,6 +67,11 @@ export default function Post(){
           );
           setSuccess(true);
           setPending(false)
+          Cookies.remove('title')
+          Cookies.remove('subtitle')
+          Cookies.remove('tag')
+          Cookies.remove('text')
+          Cookies.remove('imageURL')
         } catch (err) {
           console.log(err)
             if (!err?.response) {
