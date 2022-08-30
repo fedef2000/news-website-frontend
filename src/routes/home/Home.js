@@ -27,7 +27,7 @@ export default function Body(){
         setFirstPage(true)
       }
       setNews(a)
-      setLoaded(true)
+      setLoaded(true) 
       document.documentElement.scrollTop = 0;
       })
     }, [pageCount])
