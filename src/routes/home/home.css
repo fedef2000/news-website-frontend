@@ -24,6 +24,9 @@
     .card--container{
         margin-top: 17vw;
     }
+    .skeleton--container{
+        margin-top: 17vw;
+    }
 
     .nextPage, .prevPage{
         width: fit-content;

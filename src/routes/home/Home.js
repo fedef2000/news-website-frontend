@@ -27,7 +27,7 @@ export default function Body(){
         setFirstPage(true)
       }
       setNews(a)
-      setLoaded(true)
+      //setLoaded(true) --------------------------------------------------------------------------------
       document.documentElement.scrollTop = 0;
       })
     }, [pageCount])
@@ -51,9 +51,7 @@ export default function Body(){
           </Helmet>
           <Navbar />
           {!loaded ? 
-          <div>
-            <CardSkeleton />
-            <CardSkeleton />
+          <div className="skeleton--container">
             <CardSkeleton />
             <CardSkeleton />
             <CardSkeleton />
