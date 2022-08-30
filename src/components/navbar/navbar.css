@@ -43,10 +43,7 @@ nav > a:link{
     nav > a > img {
         margin-right: 0px;
         margin-left: 0px;
-        height: 13vw;
-    }
-    nav > a > h1 {
-        font-size: 5.5vw;
+        height: 11vw;
     }
     
 }

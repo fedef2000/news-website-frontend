@@ -1,15 +1,14 @@
 import "./navbar.css"
-
+import src from "../../images/Scritta.png"
 export default function Navbar() {
     return(
         <nav className="navbar">
             <a href="/">
-                <img alt="" src="https://i.ibb.co/qYBkDtK/logo.png"></img>
-            </a>
-            <a href="/">
-                <h1>Sindaco del calciomercato</h1>
+                <img alt="" src={src}></img>
             </a>
         </nav>
     )
+    /* 
+    */
 }
 
