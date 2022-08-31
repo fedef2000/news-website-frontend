@@ -8,7 +8,7 @@ export default function Card(props) {
         navigate(`/articolo/${props._id}`)
         setTimeout(()=>{document.documentElement.scrollTop = 0},200)
       }
-    }
+    } 
     return(
         <div className={`card`} > 
           <img className="card--image" alt="" src={props.imageURL} onClick={handleClick}/>

@@ -5,14 +5,10 @@ import axios from "axios"
 import { useParams } from "react-router-dom";
 import Navbar from "../../components/navbar/Navbar";
 import Footer from "../../components/footer/Footer";
-import parseDate from "../../function/parseDate";
-import { useNavigate } from 'react-router-dom';
-import ReactMarkdown from 'react-markdown'
 import Card from "../../components/card/Card";
-import rehypeRaw from 'rehype-raw'
+import Article from "../../components/article/Article";
 
 export default function Articolo(){
-  const navigate = useNavigate()
   const params = useParams();
   const [e, setE] = useState({})
   const [Found, setFound] = useState(true)
@@ -58,14 +54,7 @@ export default function Articolo(){
           <link rel="canonical" href={`https://www.sindacodelcalciomercato.it/articolo/${params.id}`}/>
           <meta name="description" content={e.text} />
         </Helmet>
-        <img className="articolo-image" alt="" src={e.imageURL}/>
-        <div className="articolo--info">
-            <p className="articolo--date" onClick={()=> navigate(`/articolo/${e._id}`)}>{parseDate(e.date)} |</p> 
-            <p className="articolo--tag" onClick={()=> navigate(`/tag/${e.tag[0]}`)}>{e.tag[0]}</p>
-        </div>
-        <h1 className="articolo-title">{e.title}</h1>
-        <h2 className="articolo-subtitle">{e.subtitle}</h2>
-        <ReactMarkdown rehypePlugins={[rehypeRaw]} className="articolo-body" children={e.text}/>
+        <Article {...e}/>
       </div>
       {foundCorrelated && 
       <div className="correlated--container">
