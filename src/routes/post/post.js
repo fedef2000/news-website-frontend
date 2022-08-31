@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import ReactMarkdown from 'react-markdown'
 import parseDate from "../../function/parseDate";
 
+
 export default function Post(){
   const token = Cookies.get('token')
   const [formData, setFormData] = useState(
@@ -14,10 +15,23 @@ export default function Post(){
         subtitle: Cookies.get('subtitle'), 
         text: Cookies.get('text'), 
         imageURL: Cookies.get('imageURL'),
-        tag: Cookies.get('tag')
+        tag: []
     }
   )
   const [tags, setTags] = useState([]);
+  const [tagArray, setTagArray] = useState([ 
+  <input
+    key={0}
+    list="tags"
+    className="form--tag"
+    type="text"
+    placeholder="tag"
+    onChange={handleTagChange}
+    name={`tag0`}
+    value={formData.tag[0]}
+    autoComplete="off"
+  />
+  ]);
   const [success, setSuccess] = useState(false);
   const [pending, setPending] = useState(false);
   const [errMsg, setErrMsg] = useState('');
@@ -35,12 +49,22 @@ export default function Post(){
   function handleChange(event) {
     const {name, value} = event.target
     Cookies.set(name, value)
+    
     setFormData(prevFormData => {
       return {
-            ...prevFormData,
-            [name]: value
-          }
-      })
+        ...prevFormData,
+        [name]:  value
+      }
+    })
+  }
+
+  function handleTagChange(event){
+    const index = event.target.name[3]
+    setFormData(prevFormData => {
+      let result = {...prevFormData}
+      result.tag[index] = event.target.value
+      return result
+    })
   }
 
   const handleSubmit = async (event) => {
@@ -53,8 +77,8 @@ export default function Post(){
         setErrMsg('Manca il testo!')
       }else if(!formData.imageURL){
         setErrMsg('Manca l\'immagine!')
-      }else if(!formData.tag){
-        setErrMsg('Manca il tag!')
+      }else if(!formData.tag[0]){
+        setErrMsg('Metti almeno un tag!')
       }else{
         try {
           setPending(true)
@@ -82,6 +106,23 @@ export default function Post(){
             }
         }
       }
+    }
+    
+    function addTag(){
+      console.log(formData.tag)
+      setTagArray(prev => {return prev.concat(  
+      <input 
+        key={prev.length}
+        list="tags"
+        className="form--tag"
+        type="text"
+        placeholder="tag"
+        onChange={handleTagChange}
+        name={`tag${prev.length}`}
+        value={formData.tag[prev.length]}
+        autoComplete="off"
+      />
+      )})
     }
 
     return(
@@ -113,16 +154,8 @@ export default function Post(){
               value={formData.subtitle}
               autoComplete="off"
           />
-          <input 
-          list="tags"
-          className="form--tag"
-          type="text"
-          placeholder="tag"
-          onChange={handleChange}
-          name="tag"
-          value={formData.tag}
-          autoComplete="off"
-          />  
+          {tagArray}
+          <button className="form--tagButton" form="none" onClick={addTag}>Aggiungi un tag</button>  
           <datalist id="tags">
             {tags.map((tag, key) => {return <option key={key} value={tag} />})}
           </datalist>

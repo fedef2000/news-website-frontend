@@ -16,6 +16,7 @@ export default function Articolo(){
   const params = useParams();
   const [e, setE] = useState({})
   const [Found, setFound] = useState(true)
+  const [loaded, setLoaded] = useState(false)
   const [correlated, setCorrelated] = useState([])
   const [foundCorrelated, setFoundCorrelated] = useState(false)
   
@@ -23,6 +24,7 @@ export default function Articolo(){
     axios.get(`https://sindaco-del-calciomercato.herokuapp.com/api/articles/${params.id}`)
     .then((res)=>{
       setE(res.data)
+      setLoaded(true)
     })
     .catch(()=>{setFound(false)})
   },[params.id])    
@@ -49,7 +51,7 @@ export default function Articolo(){
       <Navbar/>
       {
       Found? 
-      <>
+      loaded && <>
       <div className="articolo-page">
         <Helmet>
           <title>{e.title}</title>
@@ -59,7 +61,7 @@ export default function Articolo(){
         <img className="articolo-image" alt="" src={e.imageURL}/>
         <div className="articolo--info">
             <p className="articolo--date" onClick={()=> navigate(`/articolo/${e._id}`)}>{parseDate(e.date)} |</p> 
-            <p className="articolo--tag" onClick={()=> navigate(`/tag/${e.tag}`)}>{e.tag}</p>
+            <p className="articolo--tag" onClick={()=> navigate(`/tag/${e.tag[0]}`)}>{e.tag[0]}</p>
         </div>
         <h1 className="articolo-title">{e.title}</h1>
         <h2 className="articolo-subtitle">{e.subtitle}</h2>

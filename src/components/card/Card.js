@@ -10,11 +10,11 @@ export default function Card(props) {
       }
     }
     return(
-        <div className={`card`} >
+        <div className={`card`} > 
           <img className="card--image" alt="" src={props.imageURL} onClick={handleClick}/>
           <div className="card--info">
             <p className="card--date" onClick={handleClick}>{parseDate(props.date)} |</p> 
-            <p className="card--tag" onClick={()=> navigate(`/tag/${props.tag}`)}>{props.tag}</p>
+            <p className="card--tag" onClick={()=> navigate(`/tag/${props.tag[0]}`)}>{props.tag[0]}</p>
           </div>
           <h2 className="card--title" onClick={handleClick}>{props.title}</h2>
           <p className="card--subtitle" onClick={handleClick}>{props.subtitle}</p>
