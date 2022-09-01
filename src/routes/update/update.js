@@ -29,10 +29,10 @@ export default function Update(){
           })
     },[])
     
-    useEffect(()=>{
+    /*useEffect(()=>{
       if(formData.tag) formData.tag.forEach((t)=>{addTag()})
-    },[selected])
-
+    },[formData])
+    */
     console.log(formData)
 
     function handleChange(event) {
@@ -96,7 +96,7 @@ export default function Update(){
       })
     }
 
-    function addTag(value){
+    function addTag(){
       setTagArray(prev => {return prev.concat(  
       <input 
         key={prev.length}
