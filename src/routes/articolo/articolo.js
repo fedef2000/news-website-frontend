@@ -26,7 +26,8 @@ export default function Articolo(){
   },[params.id])    
 
   useEffect(()=>{
-    axios.get(`https://sindaco-del-calciomercato.herokuapp.com/api/tags/${e.tag}`)
+    if(e.tag){
+    axios.get(`https://sindaco-del-calciomercato.herokuapp.com/api/tags/${e.tag[0]}`)
     .then((res)=>{
       if((res.data.length - 1) !== 0){
         const index = res.data.findIndex((element) => {return JSON.stringify(element) === JSON.stringify(e)});
@@ -39,6 +40,7 @@ export default function Articolo(){
         setFoundCorrelated(false)
       }
     })
+  }
   },[e])  
 
   return(
