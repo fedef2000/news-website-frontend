@@ -4,6 +4,7 @@ import Cookies from "js-cookie";
 import './update.css'
 import { useNavigate } from 'react-router-dom';
 import Article from "../../components/article/Article";
+import titleToUrl from "../../function/ParseTitle"
 
 export default function Update(){
     const navigate = useNavigate()
@@ -12,6 +13,7 @@ export default function Update(){
     const [selected, setSelected] = useState({})
     const [success, setSuccess] = useState(false)
     const [formData, setFormData] = useState({})
+    const [tagArray, setTagArray] = useState([])
     const [errMsg, setErrMsg] = useState('');
     const [tags, setTags] = useState([]);
 
@@ -27,14 +29,30 @@ export default function Update(){
           })
     },[])
     
+    useEffect(()=>{
+      if(formData.tag) formData.tag.forEach((t)=>{addTag()})
+    },[selected])
+
+    console.log(formData)
+
     function handleChange(event) {
-        const {name, value} = event.target
+      const {name, value} = event.target
+      if(name === 'title'){
         setFormData(prevFormData => {
-            return {
-                ...prevFormData,
-                [name]: value
-            }
+          return {
+            ...prevFormData,
+            title:  value,
+            titleUrl: titleToUrl(value)
+          }
         })
+      }else{
+        setFormData(prevFormData => {
+          return {
+            ...prevFormData,
+            [name]:  value
+          }
+        })
+      }
     }
 
     const handleSubmit = async (event) => {
@@ -69,7 +87,29 @@ export default function Update(){
       }
     }  
 
+    function handleTagChange(event){
+      const index = event.target.name[3]
+      setFormData(prevFormData => {
+        let result = {...prevFormData}
+        result.tag[index] = event.target.value
+        return result
+      })
+    }
 
+    function addTag(value){
+      setTagArray(prev => {return prev.concat(  
+      <input 
+        key={prev.length}
+        list="tags"
+        className="form--tag"
+        type="text"
+        placeholder="tag"
+        onChange={handleTagChange}
+        name={`tag${prev.length}`}
+        autoComplete="off"
+      />
+      )})
+    }
 
     return(
         <div>
@@ -82,7 +122,7 @@ export default function Update(){
                 {articles.map((a,key) => {
                     return (
                         <div key={key} className="delete--option">
-                        <p className="delete--article" onClick={()=>{setSelected(a); setFormData({title:a.title, subtitle:a.subtitle, text: a.text, tag:a.tag, imageURL:a.imageURL})}}>{a.title}</p>
+                        <p className="delete--article" onClick={()=>{setSelected(a);setFormData({title:a.title, subtitle:a.subtitle, text: a.text, tag:a.tag, imageURL:a.imageURL, titleUrl: a.titleUrl})}}>{a.title}</p>
                         </div>)
                 })  
                 }
@@ -109,16 +149,8 @@ export default function Update(){
                         value={formData.subtitle}
                         autoComplete="off"
                     />
-                    <input 
-                    list="tags"
-                    className="form--tag"
-                    type="text"
-                    placeholder="tag"
-                    onChange={handleChange}
-                    name="tag"
-                    value={formData.tag}
-                    autoComplete="off"
-                    />  
+                    {tagArray}
+                    <button className="form--tagButton" form="none" onClick={addTag}>Aggiungi un tag</button>  
                     <datalist id="tags">
                       {tags.map((tag, key) => {return <option key={key} value={tag} />})}
                     </datalist>

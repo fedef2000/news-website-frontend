@@ -4,6 +4,7 @@ import Cookies from "js-cookie";
 import './post.css'
 import { useNavigate } from 'react-router-dom';
 import Article from "../../components/article/Article";
+import titleToUrl from "../../function/ParseTitle"
 
 export default function Post(){
   const token = Cookies.get('token')
@@ -13,9 +14,13 @@ export default function Post(){
         subtitle: Cookies.get('subtitle'), 
         text: Cookies.get('text'), 
         imageURL: Cookies.get('imageURL'),
+        titleUrl: Cookies.get('titleUrl'),
         tag: []
     }
   )
+
+  console.log(formData)
+
   const [tags, setTags] = useState([]);
   const [tagArray, setTagArray] = useState([ 
   <input
@@ -47,13 +52,22 @@ export default function Post(){
   function handleChange(event) {
     const {name, value} = event.target
     Cookies.set(name, value)
-    
-    setFormData(prevFormData => {
-      return {
-        ...prevFormData,
-        [name]:  value
-      }
-    })
+    if(name === 'title'){
+      setFormData(prevFormData => {
+        return {
+          ...prevFormData,
+          title:  value,
+          titleUrl: titleToUrl(value)
+        }
+      })
+    }else{
+      setFormData(prevFormData => {
+        return {
+          ...prevFormData,
+          [name]:  value
+        }
+      })
+    }
   }
 
   function handleTagChange(event){
@@ -91,7 +105,6 @@ export default function Post(){
           setPending(false)
           Cookies.remove('title')
           Cookies.remove('subtitle')
-          Cookies.remove('tag')
           Cookies.remove('text')
           Cookies.remove('imageURL')
         } catch (err) {
@@ -107,7 +120,6 @@ export default function Post(){
     }
     
     function addTag(){
-      console.log(formData.tag)
       setTagArray(prev => {return prev.concat(  
       <input 
         key={prev.length}

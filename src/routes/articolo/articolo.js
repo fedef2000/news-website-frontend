@@ -16,31 +16,41 @@ export default function Articolo(){
   const [correlated, setCorrelated] = useState([])
   const [foundCorrelated, setFoundCorrelated] = useState(false)
   
-  useEffect(() => {
-    axios.get(`https://sindaco-del-calciomercato.herokuapp.com/api/articles/${params.id}`)
+  useEffect(() => { //chiamata per ricevre dati dell'articolo
+    axios.get(`https://sindaco-del-calciomercato.herokuapp.com/api/articles/title/${params.titleUrl}`)
     .then((res)=>{
       setE(res.data)
       setLoaded(true)
     })
     .catch(()=>{setFound(false)})
-  },[params.id])    
+  },[params.titleUrl])    
 
-  useEffect(()=>{
+  useEffect(()=>{ //chiamata per ricevere articoli correlati
     if(e.tag){
-    axios.get(`https://sindaco-del-calciomercato.herokuapp.com/api/tags/${e.tag[0]}`)
-    .then((res)=>{
-      if((res.data.length - 1) !== 0){
-        const index = res.data.findIndex((element) => {return JSON.stringify(element) === JSON.stringify(e)});
-        if (index > -1) { 
-          res.data.splice(index, 1); 
+      axios.get(`https://sindaco-del-calciomercato.herokuapp.com/api/tags/${e.tag[0]}`)
+      .then((res)=>{
+        if((res.data.length - 1) !== 0){
+          const index = res.data.findIndex((element) => {return JSON.stringify(element) === JSON.stringify(e)});
+          if (index > -1) { 
+            res.data.splice(index, 1); 
+          }
+          setCorrelated(prev => {return [...prev, ...res.data]})
+          setFoundCorrelated(true)
+        }else{
+          setFoundCorrelated(false)
         }
-        setCorrelated(res.data)
-        setFoundCorrelated(true)
-      }else{
-        setFoundCorrelated(false)
-      }
-    })
-  }
+      })
+      axios.get(`https://sindaco-del-calciomercato.herokuapp.com/api/articles`)
+      .then((res)=>{
+          const index = res.data.findIndex((element) => {return JSON.stringify(element) === JSON.stringify(e)}); //toglie dalla lista l'articolo della pagina 
+          if (index > -1) { 
+            res.data.splice(index, 1); 
+          }
+          setCorrelated(prev => {
+            return [...prev, ...res.data]
+          })
+      })
+    }
   },[e])  
 
   return(
@@ -60,7 +70,7 @@ export default function Articolo(){
       </div>
       {foundCorrelated && 
       <div className="correlated--container">
-        <h2 className="correlated--title">Articoli correlati</h2>
+        <h2 className="correlated--title">Leggi anche</h2>
         {correlated.map((article) => {return <Card key={article._id} {...article}/>})}
       </div>
       }

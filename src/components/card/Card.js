@@ -5,7 +5,7 @@ export default function Card(props) {
     const navigate = useNavigate()
     function handleClick(){
       if(!props.disableLink){
-        navigate(`/articolo/${props._id}`)
+        navigate(`/${props.titleUrl}`)
         setTimeout(()=>{document.documentElement.scrollTop = 0},200)
       }
     } 

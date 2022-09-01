@@ -5,14 +5,12 @@ import axios from "axios"
 import { useParams } from "react-router-dom";
 import Navbar from "../../components/navbar/Navbar";
 import Footer from "../../components/footer/Footer";
-import parseDate from "../../function/parseDate";
-import { useNavigate } from 'react-router-dom';
+import Card from "../../components/card/Card";
 
 export default function Tag(){
   const params = useParams();
   const [articles, setArticles] = useState([])
   const [Found, setFound] = useState(true)
-  const navigate = useNavigate()
   useEffect(() => {
     axios.get(`https://sindaco-del-calciomercato.herokuapp.com/api/tags/${params.tag}`)
     .then((res)=>{
@@ -43,12 +41,7 @@ export default function Tag(){
         <h1 className="tag--title">{`Tutti gli articoli per ${params.tag}`}</h1>
         {articles.map((article, key) => {
             return(
-                <div className="card" key={key}>
-                    <img className="card--image" alt="" src={article.imageURL} onClick={()=> navigate(`/articolo/${article._id}`)}/>
-                    <p className="card--info" onClick={()=> navigate(`/articolo/${article._id}`)}>{parseDate(article.date)}</p>
-                    <h1 className="card--title" onClick={()=> navigate(`/articolo/${article._id}`)}>{article.title}</h1>
-                    <h2 className="card--subtitle" onClick={()=> navigate(`/articolo/${article._id}`)}>{article.subtitle}</h2>
-                </div>
+                <Card key={key} {...article}/>
             )
         })}
 
