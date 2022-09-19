@@ -75,14 +75,22 @@
 
     .articolo-subtitle{
         margin: 0vw;
-        padding: 3vw 5vw 5vw 5vw;
+        padding: 3vw 5vw 2vw 5vw;
         color: rgb(62, 57, 57);
         font-size: 4.7vw;
         line-height: 1.3;
         text-align: justify;
-        border-bottom: 4px solid #F1F1F1;
-
     }
+    .articolo--head{
+        border-bottom: 4px solid #F1F1F1;
+    }
+
+    .articolo--share{
+        margin: 2vw 5vw 5vw 5vw;
+        display: flex;
+        gap: 2vw;
+    }
+
     .articolo-body{
         margin: 3vh 5vw 0px 5vw;
         font-size: 4.4vw;
@@ -121,11 +129,17 @@
         height: auto;
     }
 
+    .articolo--share--bottom{
+        margin: 5vw 5vw 0vw 5vw;
+        display: flex;
+        gap: 2vw;
+    }
+
     .articolo--tagTitle{
     }
     
     .articolo--tagContainer{
-        margin: 5vw 5vw 0vw 5vw;
+        margin: 3vw 5vw 0vw 5vw;
         font-size: 3.5vw;
     }
     

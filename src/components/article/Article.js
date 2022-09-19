@@ -2,7 +2,9 @@ import { useNavigate } from 'react-router-dom';
 import ReactMarkdown from 'react-markdown'
 import rehypeRaw from 'rehype-raw'
 import parseDate from "../../function/parseDate";
+import Social from "../socialButtons/Social"
 import './article.css'
+
 
 export default function Article(props) {
     const navigate = useNavigate()
@@ -20,9 +22,13 @@ export default function Article(props) {
                 <p className="articolo--date" >{parseDate(props.date)} |</p> 
                 <p className="articolo--tag" onClick={()=> handleClick(props.tag[0])}>{props.tag[0]}</p>
             </div>
-            <h1 className="articolo-title">{props.title}</h1>
-            <h2 className="articolo-subtitle">{props.subtitle}</h2>
+            <div className="articolo--head">
+                <h1 className="articolo-title">{props.title}</h1>
+                <h2 className="articolo-subtitle">{props.subtitle}</h2>
+                <Social className="articolo--share" {...props}/>
+            </div>
             <ReactMarkdown rehypePlugins={[rehypeRaw]} className="articolo-body" children={props.text}/>
+            <Social className="articolo--share--bottom" {...props}/>
             <div className='articolo--tagContainer'>
             <p className='articolo--tagTitle'>Tag:</p>
             {props.tag.map((t,key)=>{
