@@ -12,6 +12,10 @@ import Tag from './routes/tag/tag';
 import Post from './routes/post/post';
 import Delete from './routes/delete/delete';
 import Update from './routes/update/update';
+import ChiSono from './routes/others/ChiSono';
+import Contact from './routes/others/Contact'
+import Donation from './routes/others/Donation'
+import Search from './routes/search/Search'
 import { HelmetProvider } from 'react-helmet-async';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -27,6 +31,10 @@ root.render(
         <Route path="/post" element={<Post />} />
         <Route path="/delete" element={<Delete />} />
         <Route path="/update" element={<Update />} />
+        <Route path="/search" element={<Search />} />
+        <Route path="/chi-sono" element={<ChiSono />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/offrici-una-paglia" element={<Donation />} />
         <Route
           path="*"
           element={
