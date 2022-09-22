@@ -59,6 +59,7 @@ export default function Donation(){
                 />
                 <button onClick={handleSubmit}>Avvia ricerca</button>
             </div>
+            <br/>
             {
             pending ?
                 <div><p>ricerca in corso...</p></div>
@@ -71,7 +72,6 @@ export default function Donation(){
             :    
             loaded &&
                 <div className="search--results">
-                    <br/>
                     {articles.map((a,key) => {return <Card key={key} {...a} />})}
                 </div>}
             <Footer />
