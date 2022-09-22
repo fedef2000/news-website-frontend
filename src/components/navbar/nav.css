@@ -128,7 +128,7 @@ li {
       align-items: center;
       justify-content: center;
       width: 100%;
-      height: fill;
+      height: stretch;
       border-bottom: 1px solid;
     }
     .nav__link{
@@ -136,7 +136,7 @@ li {
       align-items: center;
       justify-content: center;
       width: 100%;
-      height: fill;
+      height: stretch;
     }
 }   
 
