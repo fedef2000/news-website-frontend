@@ -8,7 +8,7 @@ export default function Contact(){
         <div>
             <Navbar />
             <Helmet>
-              <title>Sindaco del calciomercato | Contattaci</title>
+              <title>Contattaci | Sindaco del calciomercato</title>
               <link rel="canonical" href={`https://www.sindacodelcalciomercato.it/contact`}/>
               <meta name="description" content={"Contatta il sindaco del calciomercato"} />
             </Helmet>

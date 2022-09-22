@@ -58,10 +58,6 @@ li {
     gap: 3vh;
 }
 
-.nav__search {
-
-}
-
 .nav__link {
     color: black;
 }
@@ -140,8 +136,7 @@ li {
     }
 }   
 
-.nav__collapse {
-}
+
 
 /* Toggle Icon Animation */
 .toggle .line__1 {
