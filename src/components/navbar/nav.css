@@ -1,31 +1,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap");
-*{
-    margin:0px
-}
+
 nav {
-    grid-area: nav;
     display: flex;
     align-items: center;
     justify-content: center;
     background-color: rgb(237, 225, 206);
-    margin-bottom: 0px;
-    margin-left: 0px;
-    margin-right: 0px;
-    margin-top: 0px;
+    margin: 0px;
     border-bottom: 1px solid;
-}
-
-
-nav > a > h1 {
-    font-family: 'Open Sans';
-    font-weight: 900;
-    color:black;
-    font-size: 40px;
-    line-height: 30px;
-}
-
-nav > a:link{
-    text-decoration: none;
 }
 
 
@@ -104,7 +85,7 @@ li {
         top:0;
         left: 0;
         width: 100vw;
-        height: 14vw;
+        height: 8vh;
         justify-content: space-around;
     }
     
@@ -132,17 +113,34 @@ li {
       position: fixed;
       background:  rgb(237, 225, 206);;
       flex-direction: column;
-      top: 10vh;
+      top: 8vh;
       width: 100vw;
       height: 75vh;
       left: 0;
-      transform: translateX(-100%);
       transition: 0.5s ease;
+      gap:0;
+    }
+    .nav__collapse{
+      display: none;
+    }
+    .nav__item{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: fill;
+      border-bottom: 1px solid;
+    }
+    .nav__link{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: fill;
     }
 }   
 
 .nav__collapse {
-  transform: translateX(0%);
 }
 
 /* Toggle Icon Animation */

@@ -9,11 +9,11 @@ const Navbar = () => {
     //{ id: 2, label: "Top Club", href: "#" },
     //{ id: 3, label: "Quiz", href: "#" },
     { id: 4, label: "Chi sono", href: "/chi-sono" },
-    { id: 5, label: "Contattaci", href: "/contact" },
-    { id: 6, label: "Offrici una paglia", href: "/offrici-una-paglia" },
+    { id: 5, label: "Contattami", href: "/contact" },
+    { id: 6, label: "Offrimi una paglia", href: "/offrici-una-paglia" },
     //{ id: 7, label: "Facci una domanda", href: "#" },
   ]);
-  const [collapse, setCollapse] = useState("nav__menu");
+  const [collapse, setCollapse] = useState("nav__menu nav__collapse");
   const [toggleIcon, setToggleIcon] = useState("toggler__icon");
 
 
