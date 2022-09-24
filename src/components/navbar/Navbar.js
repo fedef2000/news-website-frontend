@@ -31,6 +31,14 @@ const Navbar = () => {
     <div className="nav__wrapper">
       <div className="container">
         <nav className="nav">    
+            <div className={toggleIcon} onClick={onToggle}>
+              <div className="line__1"></div>
+              <div className="line__2"></div>
+              <div className="line__3"></div>
+            </div>
+            <a href="/" className="nav__brand">
+                <img alt="" src={src}></img>
+            </a>
             <ul className={collapse}>
             {navItems.map((item) => (
               <li key={item.id} className="nav__item">
@@ -40,14 +48,6 @@ const Navbar = () => {
               </li>
             ))}
             </ul>
-            <div className={toggleIcon} onClick={onToggle}>
-              <div className="line__1"></div>
-              <div className="line__2"></div>
-              <div className="line__3"></div>
-            </div>
-            <a href="/" className="nav__brand">
-                <img alt="" src={src}></img>
-            </a>
             <a href="/search" className="nav__search">
                 <img alt="" src={searchIcon}></img>
             </a>

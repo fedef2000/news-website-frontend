@@ -1,7 +1,18 @@
 .home-container {
     font-family: 'Open Sans', sans-serif;
+}
+
+.card--container{
+    margin-top: 20px;
+    margin-left: 10px;
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 20px 28px;
+}
+
+.skeleton--container{
+    margin-top: 20px;
+    margin-left: 20px;
 }
 
 .nextPage, .prevPage{
@@ -12,6 +23,7 @@
     border: 1px solid;
     text-align: center;
 }
+
 .nextPage{
     margin-top: 3vw;
 }
@@ -23,9 +35,11 @@
     }
     .card--container{
         margin-top: 17vw;
+        margin-left: 0px;
     }
     .skeleton--container{
         margin-top: 17vw;
+        margin-left: 0px;
     }
 
     .nextPage, .prevPage{

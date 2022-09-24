@@ -1,6 +1,8 @@
 .articolo-page{
-    text-align: center;
+    text-align: left;
     font-family: 'Open Sans';
+    width: 80vw;
+    margin: 0px 10vw;
 }
 
 .nonTrovato{
@@ -15,8 +17,9 @@
 
 @media only screen and (max-width: 700px) {
     .articolo-page{
-        text-align: left;
         margin-bottom: 10vw;
+        width: 100vw;
+        margin: 0px 0vw;
     }
     
     .correlated--title {

@@ -4,11 +4,11 @@ import './cardSkeleton.css'
 
 export default function CardSkeleton(){
     return(
-        <div className={`skeleton`}>
+        <div className="skeleton">
             <Skeleton className="skeleton--image" alt="" />
             <Skeleton className="skeleton--info" /> 
             <Skeleton count={2} className="skeleton--title" />
-            <Skeleton count={3} inline={true} className="skeleton--subtitle" />
+            <Skeleton count={3} className="skeleton--subtitle" />
         </div>
     )
 }

@@ -1,5 +1,14 @@
 .other--page{
-    margin-top: 16vw;
-    margin-left: 3vw;
+    margin-top: 10px;
+    margin-left: 20px;
+    margin-right: 50px;
     font-family: 'Open Sans';
+}
+
+@media only screen and (max-width: 700px) {
+    .other--page{
+        margin-top: 16vw;
+        margin-left: 3vw;
+        font-family: 'Open Sans';
+    }    
 }

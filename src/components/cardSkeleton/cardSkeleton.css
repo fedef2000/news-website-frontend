@@ -1,3 +1,30 @@
+.skeleton{
+    margin-bottom: 15px;
+}
+
+.skeleton--image{
+    border-radius: 0px;
+    width: 350px;
+    height: 200px;
+    margin: 0vw 0vw;
+}
+.skeleton--info{
+    width: 120px;
+    margin: 0px 0vw 0vw 0vw;
+    font-size: 12px;
+}
+.skeleton--title{
+    width: 350px;
+    margin: 0vw 0vw 0vw 0vw;
+    font-size: 21px;
+}
+.skeleton--subtitle{
+    width: 350px;
+    margin: 0vw 0vw 0vw 0vw;
+    font-size: 14px;
+}
+
+
 @media only screen and (max-width: 900px) {
     .skeleton{
         margin-bottom: 2vw;

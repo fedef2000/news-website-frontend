@@ -1,7 +1,7 @@
-
 .card {
-    border-radius: 15px;
     text-align: center;
+    margin-bottom: 15px;
+    width: 350px;
 }
 
 .card > a:link{
@@ -13,29 +13,45 @@
     cursor:pointer;
 }
 
+.card--image{
+    border-radius: 3px;
+    height: 200px;
+    width: 350px;
+}
+
+.card--info{
+    display: flex;
+    justify-content: left;
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 2px;
+    margin-left: 3px;
+}
+
 .card--title{
     color:black;
-    font-size: 2vw;
+    text-align: left;
+    font-size: 21px;
     font-weight: 700;
-    margin-top: 15px;
-    margin-bottom: 0.6vw;
+    margin-bottom: 5px;
 }
+
 .card--subtitle{
     color:black;
-    font-size: 1.2vw;
+    text-align: left;
+    font-size: 14px;
     font-weight: 500;
 }
 
-.card--image{
-    border-radius: 15px;
-    width:31vw;
-    height:13vw;
+.card--tag{
 }
 
 @media only screen and (max-width: 900px) {
     .card{
         padding: 0px;
+        margin-bottom: 0px;
         border-radius: 0px;
+        width: 100vw;
     }
 
     .card--image{
@@ -46,7 +62,7 @@
     }
     .card--info{
         display: flex;
-        text-align: left;
+        justify-content: left;
         margin-left: 3vw;
         margin-top: 1vw;
         margin-bottom: 1vw;
