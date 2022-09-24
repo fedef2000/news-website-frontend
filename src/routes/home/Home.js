@@ -55,16 +55,20 @@ export default function Body(){
             <CardSkeleton />
             <CardSkeleton />
             <CardSkeleton />
+            <CardSkeleton />
+            <CardSkeleton />
+            <CardSkeleton />
+            <CardSkeleton />
+            <CardSkeleton />
           </div>
           :
           <div className="card--container">
           {news.map((n)=>{return <Card key={n._id} {...n}/>})}
           {!firstPage && <p className="prevPage" onClick={prevPage}>Torna alla pagina precedente</p>}
           {!lastPage && <p className="nextPage" onClick={nextPage}>Carica altre notizie</p>}
-          <Footer />
           </div>
-            
-         }
+          }
+          <Footer />
          </div>
     )
 }

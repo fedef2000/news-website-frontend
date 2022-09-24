@@ -33,9 +33,9 @@ export default function Update(){
       if(formData.tag) formData.tag.forEach((t)=>{addTag()})
     },[formData])
     */
-    console.log(formData)
 
     function handleChange(event) {
+      console.log(formData.titleUrl)
       const {name, value} = event.target
       if(name === 'title'){
         setFormData(prevFormData => {
