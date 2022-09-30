@@ -29,11 +29,6 @@ export default function Update(){
           })
     },[])
     
-    /*useEffect(()=>{
-      if(formData.tag) formData.tag.forEach((t)=>{addTag()})
-    },[formData])
-    */
-
     function handleChange(event) {
       console.log(formData.titleUrl)
       const {name, value} = event.target

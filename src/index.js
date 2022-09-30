@@ -14,14 +14,21 @@ import Delete from './routes/delete/delete';
 import Update from './routes/update/update';
 import ChiSono from './routes/others/ChiSono';
 import Contact from './routes/others/Contact'
-import Donation from './routes/others/Donation'
+import Donation from './routes/donation/Donation'
 import Search from './routes/search/Search'
 import { HelmetProvider } from 'react-helmet-async';
+import { PayPalScriptProvider } from '@paypal/react-paypal-js';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <HelmetProvider>
+    <PayPalScriptProvider options={
+            {
+                "client-id": "AfX3mmXWA__n2PauE3VWJ43gconl0VjaVQogS-nAWQwiQKeOZERH2_a9q9h5oDJX3wUa4PJ9gsu0wor-",
+                "currency":"EUR"
+            }
+        }>
     <Router>
       <Routes>
         <Route path="/" element={<Home />} />
@@ -34,7 +41,8 @@ root.render(
         <Route path="/search" element={<Search />} />
         <Route path="/chi-sono" element={<ChiSono />} />
         <Route path="/contact" element={<Contact />} />
-        <Route path="/offrici-una-paglia" element={<Donation />} />
+        
+          <Route path="/offrici-una-paglia" element={<Donation />} />
         <Route
           path="*"
           element={
@@ -46,6 +54,7 @@ root.render(
         />
       </Routes>
     </Router>
+    </PayPalScriptProvider>
     </HelmetProvider>
   </React.StrictMode>
 );
