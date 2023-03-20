@@ -14,14 +14,14 @@ export default function Delete(){
     const [success, setSuccess] = useState(false)
 
     useEffect(()=>{
-        axios.get("https://sindaco-del-calciomercato.herokuapp.com/api/articles").then((res)=>{
+        axios.get("https://sindaco-backend.onrender.com/api/articles").then((res)=>{
             setArticles(res.data)
         })
     },[])
 
     useEffect(()=>{
         if(Object.keys(selected).length > 0 && confirm){
-            const API_DELETE = `https://sindaco-del-calciomercato.herokuapp.com/api/articles/${selected._id}`
+            const API_DELETE = `https://sindaco-backend.onrender.com/api/articles/${selected._id}`
             axios.delete(API_DELETE,{headers: { 'x-auth-token': token}})
             .then((res)=>{
                 console.log('articolo eliminato')

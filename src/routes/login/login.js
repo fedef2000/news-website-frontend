@@ -3,7 +3,7 @@ import Cookies from 'js-cookie'
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import './login.css'
-const LOGIN_URL = 'https://sindaco-del-calciomercato.herokuapp.com/api/auth';
+const LOGIN_URL = 'https://sindaco-backend.onrender.com/api/auth';
 export default function Login() {
     const userRef = useRef();
     const errRef = useRef();

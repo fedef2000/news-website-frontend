@@ -12,7 +12,7 @@ export default function Tag(){
   const [articles, setArticles] = useState([])
   const [Found, setFound] = useState(true)
   useEffect(() => {
-    axios.get(`https://sindaco-del-calciomercato.herokuapp.com/api/tags/${params.tag}`)
+    axios.get(`https://sindaco-backend.onrender.com/api/tags/${params.tag}`)
     .then((res)=>{
         if(res.data.length === 0){
             setFound(false)

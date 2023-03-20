@@ -14,7 +14,7 @@ export default function Body(){
     const [firstPage, setFirstPage] = useState(true)
     const [loaded, setLoaded] = useState(false)
     useEffect(() => {
-      axios.get("https://sindaco-del-calciomercato.herokuapp.com/api/articles").then((res)=>{
+      axios.get("https://sindaco-backend.onrender.com/api/articles").then((res)=>{
       const a = res.data.slice(pageCount*10, 10*pageCount + 10)
       if(a.length <= 10){
         setLastPage(true)

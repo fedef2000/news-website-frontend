@@ -18,13 +18,13 @@ export default function Update(){
     const [tags, setTags] = useState([]);
 
     useEffect(()=>{
-        axios.get("https://sindaco-del-calciomercato.herokuapp.com/api/articles").then((res)=>{
+        axios.get("https://sindaco-backend.onrender.com/api/articles").then((res)=>{
             setArticles(res.data)
         })
     },[])
 
     useEffect(()=>{
-      axios.get("https://sindaco-del-calciomercato.herokuapp.com/api/tags").then((res)=>{
+      axios.get("https://sindaco-backend.onrender.com/api/tags").then((res)=>{
             setTags(res.data)
           })
     },[])
@@ -65,7 +65,7 @@ export default function Update(){
       }else{
         try {
             console.log(formData)
-            const API_UPDATE = `https://sindaco-del-calciomercato.herokuapp.com/api/articles/${selected._id}`
+            const API_UPDATE = `https://sindaco-backend.onrender.com/api/articles/${selected._id}`
             axios.put(API_UPDATE, formData, {headers: { 'Content-Type':'application/json', 'x-auth-token': 'token'}})
             .then((res)=>{
                 console.log('articolo aggiornato')

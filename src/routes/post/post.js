@@ -39,11 +39,11 @@ export default function Post(){
   const [pending, setPending] = useState(false);
   const [errMsg, setErrMsg] = useState('');
   const navigate = useNavigate()
-  const POST_URL = 'https://sindaco-del-calciomercato.herokuapp.com/api/articles';
+  const POST_URL = 'https://sindaco-backend.onrender.com/api/articles';
   
   //chiamata a /api/tag per avere tutti i tag come suggerimenti nel <datalist>
   useEffect(()=>{
-    axios.get("https://sindaco-del-calciomercato.herokuapp.com/api/tags").then((res)=>{
+    axios.get("https://sindaco-backend.onrender.com/api/tags").then((res)=>{
           setTags(res.data)
         })
   },[])

@@ -21,7 +21,7 @@ export default function Donation(){
     const handleSubmit = async() => {
         setPending(true)
         try{
-            const results = await axios.post("https://sindaco-del-calciomercato.herokuapp.com/api/articles/search",
+            const results = await axios.post("https://sindaco-backend.onrender.com/api/articles/search",
             {
                 string: str
             }

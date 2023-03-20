@@ -17,7 +17,7 @@ export default function Articolo(){
   const [foundCorrelated, setFoundCorrelated] = useState(false)
   
   useEffect(() => { //chiamata per ricevre dati dell'articolo
-    axios.get(`https://sindaco-del-calciomercato.herokuapp.com/api/articles/title/${params.titleUrl}`)
+    axios.get(`https://sindaco-backend.onrender.com/api/articles/title/${params.titleUrl}`)
     .then((res)=>{
       setE(res.data)
       setLoaded(true)
@@ -27,7 +27,7 @@ export default function Articolo(){
 
   useEffect(()=>{ //chiamata per ricevere articoli correlati
     if(e.tag){
-      axios.get(`https://sindaco-del-calciomercato.herokuapp.com/api/tags/${e.tag[0]}`)
+      axios.get(`https://sindaco-backend.onrender.com/api/tags/${e.tag[0]}`)
       .then((res)=>{
         if((res.data.length - 1) !== 0){
           const index = res.data.findIndex((element) => {return JSON.stringify(element) === JSON.stringify(e)});
@@ -40,7 +40,7 @@ export default function Articolo(){
           setFoundCorrelated(false)
         }
       })
-      axios.get(`https://sindaco-del-calciomercato.herokuapp.com/api/articles`)
+      axios.get(`https://sindaco-backend.onrender.com/api/articles`)
       .then((res)=>{
           const index = res.data.findIndex((element) => {return JSON.stringify(element) === JSON.stringify(e)}); //toglie dalla lista l'articolo della pagina 
           if (index > -1) { 
